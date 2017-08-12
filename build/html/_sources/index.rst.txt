@@ -26,9 +26,9 @@ Please note that this tutorial will be providing "workarounds" rather than "solu
    :maxdepth: 2
    :caption: Contents:
 
-   windows
-   macos
-   linux
+   windows/index
+   macos/index
+   linux/index
 
 
 Indices and tables

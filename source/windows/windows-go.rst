@@ -93,5 +93,5 @@ Install Go
        source ~/.bashrc
 
 
-#. Go to the final step, :ref:`windows-lantern`
+#. Go to the final step, :ref:`windows-lantern`.
 

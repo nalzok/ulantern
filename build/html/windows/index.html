@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Building Lantern on Windows &#8212; Ulantern 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installing MSYS2" href="windows-msys2.html" />
+    <link rel="prev" title="Welcome to Ulantern’s documentation!" href="../index.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="windows-msys2.html" title="Installing MSYS2"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to Ulantern’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Ulantern 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-lantern-on-windows">
+<h1>Building Lantern on Windows<a class="headerlink" href="#building-lantern-on-windows" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial, I assurme you are on a 64-bit Windows system.</p>
+<p>If you are runing a 32-bit Windows, you’ll have to make some modifications to the commands, such as replacing all <code class="docutils literal"><span class="pre">x86_64</span></code> with <code class="docutils literal"><span class="pre">i386</span></code>, yet I have no idea how many modifications in exact are needed to make it work. It is also possible to build a 32-bit version of Lantern with a 64-bit Windows, and there is a relevant discussion in the last subsection of this section.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="windows-msys2.html">Installing MSYS2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="windows-msys2.html#download-and-install-msys2">Download and install MSYS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows-msys2.html#install-prerequisites">Install Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="windows-go.html">Building a custom fork of Go</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="windows-go.html#install-go-compiler-binaries">Install Go compiler binaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows-go.html#fetch-the-repository">Fetch the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows-go.html#install-go">Install Go</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="windows-lantern.html">Building Lantern</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Welcome to Ulantern’s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="windows-msys2.html"
+                        title="next chapter">Installing MSYS2</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="windows-msys2.html" title="Installing MSYS2"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to Ulantern’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Ulantern 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Sun Qingyao.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+  </body>
+</html>

@@ -61,7 +61,7 @@ Install Prerequisites
 
        npm i gulp-cli -g
 
-#. Go to the next step, :ref:`windows-go`
+#. Go to the next step, :ref:`windows-go`.
 
 
 .. rubric:: Footnotes
