@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Building Lantern on macOS" href="../macos/index.html" />
-    <link rel="prev" title="Building a custom fork of Go" href="windows-go.html" />
+    <link rel="prev" title="Building a custom fork of Go" href="go.html" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -45,7 +45,7 @@
           <a href="../macos/index.html" title="Building Lantern on macOS"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="windows-go.html" title="Building a custom fork of Go"
+          <a href="go.html" title="Building a custom fork of Go"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Ulantern 0.0.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Building Lantern on Windows</a> &#187;</li> 
@@ -60,32 +60,39 @@
   <div class="section" id="building-lantern">
 <span id="windows-lantern"></span><h1>Building Lantern<a class="headerlink" href="#building-lantern" title="Permalink to this headline">¶</a></h1>
 <p>Now that all prerequisites have been met, we can start to build Lantern!</p>
+<div class="section" id="fetch-the-lantern-repository">
+<h2>Fetch the Lantern repository<a class="headerlink" href="#fetch-the-lantern-repository" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Launch a MinGW64 shell, which you can find at <code class="docutils literal"><span class="pre">C:\msys64\mingw64.exe</span></code>, if you haven’t yet.</p>
 </li>
 <li><p class="first">Change directory to the <code class="docutils literal"><span class="pre">Lantern</span></code> directory:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>cd $HOME/Lantern
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd $HOME/Lantern
 </pre></div>
 </div>
 </li>
-<li><p class="first">Fetch the Lantern repository from Github.comdiscussion:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">getlantern</span><span class="o">/</span><span class="n">lantern</span><span class="o">.</span><span class="n">git</span>
+<li><p class="first">Download the Lantern repository from Github.com:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>git clone https://github.com/getlantern/lantern.git
 </pre></div>
 </div>
 </li>
+</ol>
+</div>
+<div class="section" id="build-lantern">
+<h2>Build Lantern<a class="headerlink" href="#build-lantern" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
 <li><p class="first">Change directory to <code class="docutils literal"><span class="pre">lantern</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">lantern</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd lantern
 </pre></div>
 </div>
 </li>
 <li><p class="first">Build lantern:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HEADLESS</span><span class="o">=</span><span class="n">true</span> <span class="n">make</span> <span class="n">clean</span><span class="o">-</span><span class="n">desktop</span> <span class="n">lantern</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>HEADLESS=true make clean-desktop lantern
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>The standard way of building Lantern is <code class="docutils literal"><span class="pre">make</span> <span class="pre">clean-desktop</span> <span class="pre">lantern</span></code> without the preceding <code class="docutils literal"><span class="pre">HEADLESS=true</span></code>. However, after doing this, I got a error:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">panic</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">user0</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">systray</span>\<span class="n">systray</span><span class="o">.</span><span class="n">dll</span><span class="p">:</span> <span class="o">%</span><span class="mi">1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">Win32</span> <span class="n">application</span><span class="o">.</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>panic: Failed to load C:\Users\user0\AppData\Roaming\systray\systray.dll: %1 is not a valid Win32 application.
 </pre></div>
 </div>
 <p class="last">I suspect this to be a Lantern’s bug, which I cannot fix without modifying the source code, so I had to use this workaround. Lantern built with the <code class="docutils literal"><span class="pre">HEADLESS</span></code> flag won’t be able to place its icon in the notification area, but would function normally except this.</p>
@@ -96,17 +103,21 @@
 </div>
 </li>
 <li><p class="first">Copy the generated executable file to your desktop:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">lantern</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">user0</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">lantern</span><span class="o">.</span><span class="n">exe</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cp lantern /c/User/user0/Desktop/lantern.exe
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you did <code class="docutils literal"><span class="pre">make</span> <span class="pre">clean-desktop</span> <span class="pre">windows</span></code>, run <code class="docutils literal"><span class="pre">cp</span> <span class="pre">lantern_windows_386.exe</span> <span class="pre">/c/User/user0/Desktop/lantern.exe</span></code> instead</p>
+<p>If you did <code class="docutils literal"><span class="pre">make</span> <span class="pre">clean-desktop</span> <span class="pre">windows</span></code>, run the following command instead:</p>
+<div class="last highlight-none"><div class="highlight"><pre><span></span>cp lantern_windows_386.exe /c/User/user0/Desktop/lantern.exe
+</pre></div>
+</div>
 </div>
 </li>
-<li><p class="first">You can find the <code class="docutils literal"><span class="pre">lantern.exe</span></code> on your desktop. Run it and profit!</p>
+<li><p class="first">Now you can find the <code class="docutils literal"><span class="pre">lantern.exe</span></code> on your desktop. Run it and profit!</p>
 </li>
 </ol>
+</div>
 </div>
 
 
@@ -116,7 +127,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="windows-go.html"
+  <p class="topless"><a href="go.html"
                         title="previous chapter">Building a custom fork of Go</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../macos/index.html"
@@ -145,7 +156,7 @@
           <a href="../macos/index.html" title="Building Lantern on macOS"
              >next</a> |</li>
         <li class="right" >
-          <a href="windows-go.html" title="Building a custom fork of Go"
+          <a href="go.html" title="Building a custom fork of Go"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Ulantern 0.0.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Building Lantern on Windows</a> &#187;</li> 

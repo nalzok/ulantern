@@ -24,7 +24,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Building a custom fork of Go" href="windows-go.html" />
+    <link rel="next" title="Building a custom fork of Go" href="go.html" />
     <link rel="prev" title="Building Lantern on Windows" href="index.html" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
@@ -42,7 +42,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="windows-go.html" title="Building a custom fork of Go"
+          <a href="go.html" title="Building a custom fork of Go"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Building Lantern on Windows"
@@ -74,7 +74,7 @@
 <li><p class="first">Launch the MSYS2 shell, either by using the “Run MSYS2 now” shortcut in the MSYS2 Setup Wizard, or by running <code class="docutils literal"><span class="pre">C:\msys64\msys2_shell.cmd</span></code>.</p>
 <ol class="arabic">
 <li><p class="first">Update the core packages with:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">--</span><span class="n">needed</span> <span class="o">-</span><span class="n">Sy</span> <span class="n">bash</span> <span class="n">pacman</span> <span class="n">pacman</span><span class="o">-</span><span class="n">mirrors</span> <span class="n">msys2</span><span class="o">-</span><span class="n">runtime</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
 </pre></div>
 </div>
 <p>Type <code class="docutils literal"><span class="pre">y</span></code> when prompted to confirm.</p>
@@ -82,12 +82,12 @@
 <li><p class="first">Re-launch the MSYS2 shell.</p>
 </li>
 <li><p class="first">Update all packages with:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">Su</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>pacman -Su
 </pre></div>
 </div>
 </li>
 <li><p class="first">Install the 32 bit version of MinGW-w64 and Clang (currently gcc is version 7.1.0 and clang is version 4.0.0):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">clang</span> <span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">i686</span><span class="o">-</span><span class="n">clang</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>pacman -S mingw-w64-x86_64-clang mingw-w64-i686-clang
 </pre></div>
 </div>
 </li>
@@ -103,16 +103,16 @@
 <li><p class="first">Launch the MinGW64 shell, which you can find at <code class="docutils literal"><span class="pre">C:\msys64\mingw64.exe</span></code>.</p>
 </li>
 <li><p class="first">Install Git, GNU Make, Nodejs(which now includes NPM):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">git</span> <span class="n">make</span> <span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">nodejs</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>pacman -S git make mingw-w64-x86_64-nodejs
 </pre></div>
 </div>
 </li>
 <li><p class="first">Install Gulp:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">i</span> <span class="n">gulp</span><span class="o">-</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>npm i gulp-cli -g
 </pre></div>
 </div>
 </li>
-<li><p class="first">Go to the next step, <a class="reference internal" href="windows-go.html#windows-go"><span class="std std-ref">Building a custom fork of Go</span></a>.</p>
+<li><p class="first">Go to the next step, <a class="reference internal" href="go.html#windows-go"><span class="std std-ref">Building a custom fork of Go</span></a>.</p>
 </li>
 </ol>
 <p class="rubric">Footnotes</p>
@@ -135,7 +135,7 @@
   <p class="topless"><a href="index.html"
                         title="previous chapter">Building Lantern on Windows</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="windows-go.html"
+  <p class="topless"><a href="go.html"
                         title="next chapter">Building a custom fork of Go</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -158,7 +158,7 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="windows-go.html" title="Building a custom fork of Go"
+          <a href="go.html" title="Building a custom fork of Go"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Building Lantern on Windows"

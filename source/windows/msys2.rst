@@ -12,7 +12,7 @@ Installing MSYS2
 
 The building of Lantern requires some tools which aren't shipped with Windows, such as a C compiler [#f1]_, Git, GNU Make, and Nodejs. Thus, equipping ourselves with these tools is the first thing to do.
 
-Setting up a GNU toolchain on Windows is inherently unnatural and troublesome. Usually people use MinGW or Cygwin for this purpose, and I tried them, but failed. Finally, I found Mr. Johannes' great tutorial on Stack Overflow, and it smoothly solves this issue. As a bonus, his tutorial also prepares two fully working C++ compilers for you, which means you no longer need to take the pain of installing them in case you need them later.
+Setting up a GNU toolchain on Windows is inherently unnatural and troublesome. Usually people use MinGW or Cygwin for this purpose, and I tried them, but failed. Finally, I found Mr. Johannes' great tutorial on Stack Overflow, and it smoothly solves this issue. Impressively, his tutorial prepares all major C/C++ compilers (gcc, g++, clang, and clang++) for you, which means you no longer need to take the pain of installing them later.
 
 Mr. Johannes provides two different approaches in his tutorial, one utilizes MinGW-w64 while the other relies on the less famous MSYS2. Since I personally prefer Linux's bash over Windows' cmd, I'll go with approach 2 in my tutorial.
 

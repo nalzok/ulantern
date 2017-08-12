@@ -54,8 +54,8 @@ The Go tool chain is written in Go. To build it, you need a Go compiler installe
        rm go1.4-bootstrap-20170531.tar.gz 
 
 
-Fetch the repository
---------------------
+Fetch the Go repository
+-----------------------
 
 #. Create a directory named ``Lantern``. It will be containing the repository (i.e. source code) of Go and Lantern::
 

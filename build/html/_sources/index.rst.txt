@@ -3,6 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
 Welcome to Ulantern's documentation!
 ====================================
 
@@ -34,5 +35,5 @@ Please note that this tutorial will be providing "workarounds" rather than "solu
 Indices and tables
 ==================
 
-* :ref:`genindex`
 * :ref:`search`
+

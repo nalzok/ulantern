@@ -31,7 +31,7 @@ The Go tool chain is written in Go. To build it, you need a Go compiler installe
 
    .. _downloads page: https://golang.org/dl/
 
-   #. First, downloadsource by:
+   #. First, downloadsource by::
 
           wget https://storage.googleapis.com/golang/go1.4-bootstrap-20170531.tar.gz
 
@@ -39,7 +39,7 @@ The Go tool chain is written in Go. To build it, you need a Go compiler installe
 
           mkdir Go1.4/ && tar -zxvf go1.4-bootstrap-20170531.tar.gz -C Go1.4/ --strip-components=1
 
-   #. Finally, ``cd`` to the ``src`` subdirectory and run ``make.bat``. This would take a while.
+   #. Finally, ``cd`` to the ``src`` subdirectory and run ``make.bat``. This would take a while::
 
           cd Go1.4/src/
           ./make.bat 
@@ -54,8 +54,8 @@ The Go tool chain is written in Go. To build it, you need a Go compiler installe
        rm go1.4-bootstrap-20170531.tar.gz 
 
 
-Fetch the repository
---------------------
+Fetch the Go repository
+-----------------------
 
 #. Create a directory named ``Lantern``. It will be containing the repository (i.e. source code) of Go and Lantern::
 
@@ -70,6 +70,10 @@ Fetch the repository
        git clone https://github.com/getlantern/go.git
        cd go
        git checkout lantern
+
+   .. note::
+
+      When you see a multi-line line code block, run the command on each line one aftr one.
 
 
 Install Go

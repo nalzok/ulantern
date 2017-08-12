@@ -6,6 +6,9 @@ Building Lantern
 Now that all prerequisites have been met, we can start to build Lantern!
 
 
+Fetch the Lantern repository
+----------------------------
+
 #. Launch a MinGW64 shell, which you can find at ``C:\msys64\mingw64.exe``, if you haven't yet.
 
    
@@ -14,10 +17,13 @@ Now that all prerequisites have been met, we can start to build Lantern!
        cd $HOME/Lantern
 
 
-#. Fetch the Lantern repository from Github.comdiscussion::
+#. Download the Lantern repository from Github.com::
 
        git clone https://github.com/getlantern/lantern.git
 
+
+Build Lantern
+-------------
 
 #. Change directory to ``lantern``::
 
@@ -47,8 +53,10 @@ Now that all prerequisites have been met, we can start to build Lantern!
 
    .. note::
 
-      If you did ``make clean-desktop windows``, run ``cp lantern_windows_386.exe /c/User/user0/Desktop/lantern.exe`` instead
+      If you did ``make clean-desktop windows``, run the following command instead::
+
+          cp lantern_windows_386.exe /c/User/user0/Desktop/lantern.exe
 
 
-#. You can find the ``lantern.exe`` on your desktop. Run it and profit!
+#. Now you can find the ``lantern.exe`` on your desktop. Run it and profit!
 
