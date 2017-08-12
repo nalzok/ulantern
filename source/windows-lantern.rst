@@ -1,0 +1,50 @@
+.. _building-lantern:
+
+Building Lantern
+================
+
+Now that all prerequisites have been met, we can start to build Lantern!
+
+
+#. Launch a MinGW64 shell, which you can find at ``C:\msys64\mingw64.exe``, if you haven't yet.
+
+   
+#. Change directory to the ``Lantern`` directory::
+
+       cd $HOME/Lantern
+
+
+#. Fetch the Lantern repository from Github.comdiscussion::
+
+       git clone https://github.com/getlantern/lantern.git
+
+
+#. Change directory to ``lantern``::
+
+       cd lantern
+
+
+#. Build lantern::
+
+       HEADLESS=true make clean-desktop lantern
+
+   .. note::
+
+      The standard way of building Lantern is ``make clean-desktop lantern`` without the preceding ``HEADLESS=true``. However, I got a ``panic: Failed to load C:\Users\user0\AppData\Roaming\systray\systray.dll: %1 is not a valid Win32 application.`` error after doing so, which I suspect to be a bug. Lantern built with the ``HEADLESS`` flag won't be able to place an icon and menu in the notification area, but would function normally expect this.
+      
+   .. note::
+
+      If you run ``make clean-desktop windows`` instead of ``HEADLESS=true make lantern``, the generated executable file (it's named ``lantern_windows_386.exe`` instead of ``lantern``) would be presumably runable even on 32-bit Windws systems.
+
+
+#. Copy the EXE file to your desktop
+   
+      cp lantern /c/User/user0/Desktop/lantern.exe
+
+   .. note::
+
+      If you did ``make clean-desktop windows``, run ``cp lantern_windows_386.exe /c/User/user0/Desktop/lantern.exe`` instead
+
+
+#. You can find the ``lantern.exe`` on your desktop. Run it and profit!
+

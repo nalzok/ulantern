@@ -1,0 +1,207 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Building a custom fork of Go &#8212; Ulantern 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building Lantern" href="windows-lantern.html" />
+    <link rel="prev" title="Installing MSYS2" href="windows-msys2.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="windows-lantern.html" title="Building Lantern"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="windows-msys2.html" title="Installing MSYS2"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ulantern 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="windows.html" accesskey="U">Building Lantern on Windows</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-a-custom-fork-of-go">
+<span id="id1"></span><h1>Building a custom fork of Go<a class="headerlink" href="#building-a-custom-fork-of-go" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For your reference, here is the relevant offical document: <a class="reference external" href="https://golang.org/doc/install/source">Installing Go from source</a>.</p>
+</div>
+<p>Lantern requires a <cite>custom fork of Go</cite>, which doesn’t provide pre-built binary files, so we’ll have to compile it by ourselves.</p>
+<div class="section" id="install-go-compiler-binaries">
+<h2>Install Go compiler binaries<a class="headerlink" href="#install-go-compiler-binaries" title="Permalink to this headline">¶</a></h2>
+<p>The Go tool chain is written in Go. To build it, you need a Go compiler installed.</p>
+<ol class="arabic">
+<li><p class="first">Launch a MinGW64 shell, which you can find at <code class="docutils literal"><span class="pre">C:\msys64\mingw64.exe</span></code>, if you haven’t yet.</p>
+</li>
+<li><p class="first">Change the current directory to your home directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>cd $HOME
+</pre></div>
+</div>
+</li>
+<li><p class="first">According to the offical document, you can use a binary release as a bootstrap tool chain, see the <a class="reference external" href="https://golang.org/dl/">downloads page</a>. However, the link seems to be blocked, so let’s build the bootstrap tool chain from source instead.</p>
+<ol class="arabic">
+<li><p class="first">First, downloadsource by:</p>
+<blockquote>
+<div><p>wget <a class="reference external" href="https://storage.googleapis.com/golang/go1.4-bootstrap-20170531.tar.gz">https://storage.googleapis.com/golang/go1.4-bootstrap-20170531.tar.gz</a></p>
+</div></blockquote>
+</li>
+<li><p class="first">Next, unpack it. This is going to take several seconds:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">Go1</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span> <span class="o">&amp;&amp;</span> <span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="n">go1</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="n">bootstrap</span><span class="o">-</span><span class="mf">20170531.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="n">Go1</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span> <span class="o">--</span><span class="n">strip</span><span class="o">-</span><span class="n">components</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Finally, <code class="docutils literal"><span class="pre">cd</span></code> to the <code class="docutils literal"><span class="pre">src</span></code> subdirectory and run <code class="docutils literal"><span class="pre">make.bat</span></code>. This would take a while.</p>
+<blockquote>
+<div><p>cd Go1.4/src/
+./make.bat</p>
+</div></blockquote>
+</li>
+</ol>
+</li>
+<li><p class="first">Now it’s return to the home directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>cd $HOME
+</pre></div>
+</div>
+</li>
+<li><p class="first">(Optional) Now you can delete the compressed file, if you want:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="n">go1</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="n">bootstrap</span><span class="o">-</span><span class="mf">20170531.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="fetch-the-repository">
+<h2>Fetch the repository<a class="headerlink" href="#fetch-the-repository" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Create a directory named <code class="docutils literal"><span class="pre">Lantern</span></code>. It will be containing the repository (i.e. source code) of Go and Lantern:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">Lantern</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change directory to <code class="docutils literal"><span class="pre">Lantern</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Lantern</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download the custom fork of Go from Github:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">getlantern</span><span class="o">/</span><span class="n">go</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">go</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">lantern</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="install-go">
+<h2>Install Go<a class="headerlink" href="#install-go" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Build the Go distribution:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">src</span>
+<span class="o">./</span><span class="nb">all</span><span class="o">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">all.bat</span></code> would also run some tests after building Go. If you wish to skip the tests, run the following commands instead:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">src</span>
+<span class="o">./</span><span class="n">make</span><span class="o">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Then, add the <code class="docutils literal"><span class="pre">bin</span></code> directory to <code class="docutils literal"><span class="pre">$PATH</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;# getlantern/go&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">echo</span> <span class="s2">&quot;export GOROOT=$HOME/Lantern/go&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">echo</span> <span class="s2">&quot;export PATH=$PATH:$GOROOT/bin&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Go to the final step, <a class="reference internal" href="windows-lantern.html#building-lantern"><span class="std std-ref">Building Lantern</span></a></p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="windows-msys2.html"
+                        title="previous chapter">Installing MSYS2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="windows-lantern.html"
+                        title="next chapter">Building Lantern</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="windows-lantern.html" title="Building Lantern"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="windows-msys2.html" title="Installing MSYS2"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ulantern 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="windows.html" >Building Lantern on Windows</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Sun Qingyao.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+  </body>
+</html>

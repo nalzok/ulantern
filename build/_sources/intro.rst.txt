@@ -1,0 +1,10 @@
+Introduction
+============
+
+The project name, "ulantern", stands for "unlimited lantern", referencing `/dev/urandom` for `/dev/random`.
+
+.. note::
+    This is a note
+
+.. warning::
+    This is a warning

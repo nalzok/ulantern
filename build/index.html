@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Ulantern’s documentation! &#8212; Ulantern 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building Lantern on Windows" href="windows.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="windows.html" title="Building Lantern on Windows"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Ulantern 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-ulantern-s-documentation">
+<h1>Welcome to Ulantern’s documentation!<a class="headerlink" href="#welcome-to-ulantern-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>“Ulantern” stands for “Unlimited Lantern”, referencing <code class="docutils literal"><span class="pre">/dev/urandom</span></code> for <code class="docutils literal"><span class="pre">/dev/random</span></code> on Unix-like operating systems. <a class="reference external" href="https://github.com/getlantern/lantern">Lantern</a> is a handy tool developed by Google, which gives people access to websites blocked in mainland China, such as Google, Youtube, Twitter and Facebook.</p>
+<p>However, Lantern has a drawback: there is a bandwidth limitation of 500MB per month, and the connection would be (greatly) slowed down once the limit is reached. If one require unlimited connection, they’ll have to upgrade to Lantern Pro, which costs $32 (USD) for one year, or $48 (USD) for two years.</p>
+<p>While it is always encouraged to buy lantern Pro in support of this awesome project, there exists another option: building it from source. Yes, for whatever reasons, they are charging for an open-source project! Anyway, the built-from-source version of Lantern doesn’t have a data bandwidth limit, and that’s all that matters. Unfortunately, building Lantern from scratch isn’t trivial at all, especially on Windows. Ulantern to the rescue! Basically, Ulantern is a readme-only project which guides you to build Lantern from source in a step-by-step fashion.</p>
+<p>Please note that this tutorial will be providing “workarounds” rather than “solutions”. This is both due to my lack of expertise, and the fact that Lantern’s repository is no longer actively maintained, which means its bugs will probably never be fixed.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">The tutorial is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the tutorial or the use or other dealings in the tutorial.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">Building Lantern on Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="windows-msys2.html">Installing MSYS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows-go.html">Building a custom fork of Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows-lantern.html">Building Lantern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="macos.html">Building Lantern on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building Lantern on GNU/Linux</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Next topic</h4>
+  <p class="topless"><a href="windows.html"
+                        title="next chapter">Building Lantern on Windows</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="windows.html" title="Building Lantern on Windows"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Ulantern 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Sun Qingyao.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+  </body>
+</html>

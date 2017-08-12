@@ -1,0 +1,175 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Installing MSYS2 &#8212; Ulantern 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building a custom fork of Go" href="windows-go.html" />
+    <link rel="prev" title="Building Lantern on Windows" href="windows.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="windows-go.html" title="Building a custom fork of Go"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="windows.html" title="Building Lantern on Windows"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ulantern 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="windows.html" accesskey="U">Building Lantern on Windows</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing-msys2">
+<span id="id1"></span><h1>Installing MSYS2<a class="headerlink" href="#installing-msys2" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This part is largely based on <a class="reference external" href="http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt1/">Johannes Peter’s tutorial for installing clang on Windows</a>.</p>
+</div>
+<p>The building of Lantern requires some tools which aren’t shipped with Windows, such as a C compiler <a class="footnote-reference" href="#f1" id="id2">[1]</a>, Git, GNU Make, and Nodejs. Thus, equipping ourselves with these tools is the first thing to do.</p>
+<p>Setting up a GNU toolchain on Windows is inherently unnatural and troublesome. Usually people use MinGW or Cygwin for this purpose, and I tried them, but failed. Finally, I found Mr. Johannes’ great tutorial on Stack Overflow, and it smoothly solves this issue. As a bonus, his tutorial also prepares two fully working C++ compilers for you, which means you no longer need to take the pain of installing them in case you need them later.</p>
+<p>Mr. Johannes provides two different approaches in his tutorial, one utilizes MinGW-w64 while the other relies on the less famous MSYS2. Since I personally prefer Linux’s bash over Windows’ cmd, I’ll go with approach 2 in my tutorial.</p>
+<div class="section" id="download-and-install-msys2">
+<h2>Download and install MSYS2<a class="headerlink" href="#download-and-install-msys2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Download and run the MSYS2 installer from the <a class="reference external" href="http://www.msys2.org/">offical website</a>. Currently, the latest release is <a class="reference external" href="http://repo.msys2.org/distrib/x86_64/msys2-x86_64-20161025.exe">msys2-x86_64-20161025.exe</a>(warning: direct download).</p>
+</li>
+<li><p class="first">Launch the MSYS2 shell, either by using the “Run MSYS2 now” shortcut in the MSYS2 Setup Wizard, or by running <code class="docutils literal"><span class="pre">C:\msys64\msys2_shell.cmd</span></code>.</p>
+<ol class="arabic">
+<li><p class="first">Update the core packages with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">--</span><span class="n">needed</span> <span class="o">-</span><span class="n">Sy</span> <span class="n">bash</span> <span class="n">pacman</span> <span class="n">pacman</span><span class="o">-</span><span class="n">mirrors</span> <span class="n">msys2</span><span class="o">-</span><span class="n">runtime</span>
+</pre></div>
+</div>
+<p>Type <code class="docutils literal"><span class="pre">y</span></code> when prompted to confirm.</p>
+</li>
+<li><p class="first">Re-launch the MSYS2 shell.</p>
+</li>
+<li><p class="first">Update all packages with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">Su</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install the 32 bit version of MinGW-w64 and Clang (currently gcc is version 7.1.0 and clang is version 4.0.0):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">clang</span> <span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">i686</span><span class="o">-</span><span class="n">clang</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now you can close the MYYS2 shell.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="install-prerequisites">
+<h2>Install Prerequisites<a class="headerlink" href="#install-prerequisites" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Launch the MinGW64 shell, which you can find at <code class="docutils literal"><span class="pre">C:\msys64\mingw64.exe</span></code>.</p>
+</li>
+<li><p class="first">Install Git, GNU Make, Nodejs(which now includes NPM):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">git</span> <span class="n">make</span> <span class="n">mingw</span><span class="o">-</span><span class="n">w64</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">nodejs</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install Gulp:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">i</span> <span class="n">gulp</span><span class="o">-</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Go to the next step, Building a custom fork of Go</p>
+</li>
+</ol>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>While the document says <a class="reference external" href="https://golang.org/doc/install/source#ccompiler">a C compiler is optional</a>, I just can’t build Go without having one for some reason, even if <code class="docutils literal"><span class="pre">CGO_ENABLED=0</span></code> is set. Anyway, C/C++ compilers are useful, so I think it makes sense to install them now. At the very least, this is for future use.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="windows.html"
+                        title="previous chapter">Building Lantern on Windows</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="windows-go.html"
+                        title="next chapter">Building a custom fork of Go</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="windows-go.html" title="Building a custom fork of Go"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="windows.html" title="Building Lantern on Windows"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ulantern 0.0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="windows.html" >Building Lantern on Windows</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Sun Qingyao.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+  </body>
+</html>
