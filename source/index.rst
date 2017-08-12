@@ -19,7 +19,7 @@ While it is always encouraged to buy lantern Pro in support of this awesome proj
 Please note that this tutorial will be providing "workarounds" rather than "solutions". This is both due to my lack of expertise, and the fact that Lantern's repository is no longer actively maintained, which means its bugs will probably never be fixed.
 
 
-.. attention::
+.. warning::
   The tutorial is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the tutorial or the use or other dealings in the tutorial. 
 
 
@@ -32,8 +32,8 @@ Please note that this tutorial will be providing "workarounds" rather than "solu
    linux/index
 
 
-Indices and tables
-==================
+Search
+======
 
 * :ref:`search`
 
