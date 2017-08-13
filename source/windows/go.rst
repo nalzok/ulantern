@@ -31,9 +31,18 @@ The Go tool chain is written in Go. To build it, you need a Go compiler installe
 
    .. _downloads page: https://golang.org/dl/
 
-   #. First, downloadsource by::
+   #. First, download the source by::
 
           wget https://storage.googleapis.com/golang/go1.4-bootstrap-20170531.tar.gz
+
+      And a compressed file of 10.79 MB will be downloaded.
+
+      .. note::
+
+         If the download fails, try the following command::
+
+             wget http://ulantern.readthedocs.io/en/latest/_downloads/go1.4-bootstrap-20170531.tar.gz
+          
 
    #. Next, unpack it. This is going to take several seconds::
 

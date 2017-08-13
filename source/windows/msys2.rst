@@ -21,10 +21,10 @@ Mr. Johannes provides two different approaches in his tutorial, one utilizes Min
 Download and install MSYS2
 --------------------------
 
-#. Download and run the MSYS2 installer from the `offical website`_. Currently, the latest release is msys2-x86_64-20161025.exe_\ (warning: direct download).
+#. Download and run the MSYS2 installer from the `offical website`_. Alternatively, you can download it from its `SourceForge repository`_. Just in case both links don't work, I've archived :download:`msys2-x86_64-20161025.exe </static/windows/msys2-x86_64-20161025.exe>` (71.0 MB, direct download) for you.
 
    .. _offical website: http://www.msys2.org/
-   .. _msys2-x86_64-20161025.exe: http://repo.msys2.org/distrib/x86_64/msys2-x86_64-20161025.exe
+   .. _SourceForge repository: https://sourceforge.net/projects/msys2/
 
 #. Launch the MSYS2 shell, either by using the "Run MSYS2 now" shortcut in the MSYS2 Setup Wizard, or by running ``C:\msys64\msys2_shell.cmd``.
 

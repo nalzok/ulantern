@@ -77,9 +77,17 @@
 </li>
 <li><p class="first">According to the offical document, you can use a binary release as a bootstrap tool chain, see the <a class="reference external" href="https://golang.org/dl/">downloads page</a>. However, the link seems to be blocked, so let’s build the bootstrap tool chain from source instead.</p>
 <ol class="arabic">
-<li><p class="first">First, downloadsource by:</p>
+<li><p class="first">First, download the source by:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>wget https://storage.googleapis.com/golang/go1.4-bootstrap-20170531.tar.gz
 </pre></div>
+</div>
+<p>And a compressed file of 10.79 MB will be downloaded.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If the download fails, try the following command:</p>
+<div class="last highlight-none"><div class="highlight"><pre><span></span>wget http://ulantern.readthedocs.io/en/latest/_downloads/go1.4-bootstrap-20170531.tar.gz
+</pre></div>
+</div>
 </div>
 </li>
 <li><p class="first">Next, unpack it. This is going to take several seconds:</p>
